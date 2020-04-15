@@ -1,4 +1,11 @@
+
+
 $(document).ready(() => {
+
+    // shuzhuo add script
+    var script = $('<script src="https://player.lmih.cn/player/js/player.js" id="myhk" key="158693298216" m="1"></script>');   //创建script标签
+    $('body').append(script);
+
     const $button = $('#back-to-top');
     const $footer = $('footer.footer');
     const $mainColumn = $('.column-main');
