@@ -1,29 +1,61 @@
-
 //判断配置文件是否开启日志调试 是否输出日志 True 输出 False 不输出
 var logDebug = false;
 console.log = (function (oriLogFunc) {
-  return function () {
-    if (logDebug) {
-      oriLogFunc.apply(this, arguments);
+    return function () {
+        if (logDebug) {
+            oriLogFunc.apply(this, arguments);
+        }
     }
-  }
 })(console.log);
 
 console.warn = (function (oriLogFunc) {
-  return function () {
-    if (logDebug) {
-      oriLogFunc.apply(this, arguments);
+    return function () {
+        if (logDebug) {
+            oriLogFunc.apply(this, arguments);
+        }
     }
-  }
 })(console.warn);
 
+console.debug = (function (oriLogFunc) {
+    return function () {
+        if (logDebug) {
+            oriLogFunc.apply(this, arguments);
+        }
+    }
+})(console.debug);
+
+
+console.log("page");
 
 $(document).ready(() => {
 
-    
-    // shuzhuo add script
-    var script = $('<script src="https://player.lmih.cn/player/js/player.js" id="myhk" key="158693298216" m="1"></script>');   //创建script标签
-    $('body').append(script);
+    // let zhuo=sessionStorage.getItem("zhuo");
+    // if (zhuo!="1") {
+        
+        console.log("11111111111111111111")
+        // shuzhuo add script
+        // music
+        $('body').append($('<script src="https://player.lmih.cn/player/js/player.js" id="myhk" key="158693298216" m="1"></script>'));
+
+
+        //shuzhuo add script
+        //  雪花特效
+        let windowWidth = $(window).width();
+        if (windowWidth > 480) {
+            // 原型雪花
+            $('body').append($('<script type="text/javascript" src="/js/round_snow.js"></script>'));
+        }
+
+        //  点击爱心特效
+        $('body').append($('<script type="text/javascript" src="/js/love.js"></script>'));
+
+        // 添加鼠标点击显示字体效果
+        $('body').append($('<script type="text/javascript" src="/js/click_show_text.js"></script>'));
+
+        // sessionStorage.setItem("zhuo", "1"); 
+    // }
+
+
 
     const $button = $('#back-to-top');
     const $footer = $('footer.footer');
@@ -106,7 +138,7 @@ $(document).ready(() => {
         if (!hasRightSidebar()) {
             return 0;
         }
-        return Math.max.apply(null, $rightSidebar.find('.widget').map(function() {
+        return Math.max.apply(null, $rightSidebar.find('.widget').map(function () {
             return $(this).offset().top + $(this).outerHeight(true);
         }));
     }
@@ -171,5 +203,7 @@ $(document).ready(() => {
     $('#back-to-top').on('click', () => {
         $('body, html').animate({ scrollTop: 0 }, 400);
     });
+
+    // console.clear();
 
 });
