@@ -1,7 +1,26 @@
 
+//判断配置文件是否开启日志调试 是否输出日志 True 输出 False 不输出
+var logDebug = false;
+console.log = (function (oriLogFunc) {
+  return function () {
+    if (logDebug) {
+      oriLogFunc.apply(this, arguments);
+    }
+  }
+})(console.log);
+
+console.warn = (function (oriLogFunc) {
+  return function () {
+    if (logDebug) {
+      oriLogFunc.apply(this, arguments);
+    }
+  }
+})(console.warn);
+
 
 $(document).ready(() => {
 
+    
     // shuzhuo add script
     var script = $('<script src="https://player.lmih.cn/player/js/player.js" id="myhk" key="158693298216" m="1"></script>');   //创建script标签
     $('body').append(script);
@@ -152,4 +171,5 @@ $(document).ready(() => {
     $('#back-to-top').on('click', () => {
         $('body, html').animate({ scrollTop: 0 }, 400);
     });
+
 });
