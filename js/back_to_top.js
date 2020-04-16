@@ -25,32 +25,47 @@ console.debug = (function (oriLogFunc) {
 })(console.debug);
 
 
-console.log("page");
-
 $(document).ready(() => {
 
     // let zhuo=sessionStorage.getItem("zhuo");
     // if (zhuo!="1") {
         
-        console.log("11111111111111111111")
         // shuzhuo add script
         // music
-        $('body').append($('<script src="https://player.lmih.cn/player/js/player.js" id="myhk" key="158693298216" m="1"></script>'));
+        // $('body').append($('<script src="https://player.lmih.cn/player/js/player.js" id="myhk" key="158693298216" m="1" defer></script>'));
+        // var elem = document.createElement('script');
+        // elem.src = "https://player.lmih.cn/player/js/player.js";
+        // elem.setAttribute("id","myhk");
+        // elem.setAttribute("key","158693298216");
+        // elem.setAttribute("m","1");
+        // document.querySelector('body').appendChild(elem);
 
 
         //shuzhuo add script
         //  雪花特效
-        let windowWidth = $(window).width();
-        if (windowWidth > 480) {
-            // 原型雪花
-            $('body').append($('<script type="text/javascript" src="/js/round_snow.js"></script>'));
-        }
+        // let windowWidth = $(window).width();
+        // if (windowWidth > 480) {
+        //     // 原型雪花
+        //     // $('body').append($('<script type="text/javascript" src="/js/round_snow.js" defer></script>'));
+        //     var elem = document.createElement('script');
+        //     elem.src = "/js/round_snow.js";
+        //     document.querySelector('body').appendChild(elem);
+        // }
 
         //  点击爱心特效
-        $('body').append($('<script type="text/javascript" src="/js/love.js"></script>'));
+        // $('body').append($('<script type="text/javascript" src="/js/love.js" defer></script>'));
+
+        // var elem = document.createElement('script');
+        //     elem.src = "/js/love.js";
+        //     document.querySelector('body').appendChild(elem);
 
         // 添加鼠标点击显示字体效果
-        $('body').append($('<script type="text/javascript" src="/js/click_show_text.js"></script>'));
+        // $('body').append($('<script type="text/javascript" src="/js/click_show_text.js" defer></script>'));
+
+            var elem = document.createElement('script');
+            elem.src = "/js/click_show_text.js";
+            // elem.src = "/js/count.js";
+            document.querySelector('body').appendChild(elem);
 
         // sessionStorage.setItem("zhuo", "1"); 
     // }
